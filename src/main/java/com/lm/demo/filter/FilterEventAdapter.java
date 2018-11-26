@@ -1,5 +1,10 @@
 package com.lm.demo.filter;
 
+/*
+    虽然说filterChain是按照与传入顺序相反的顺序调用filter，但是每个filter对动作的bifore和after方法的修饰
+    还是按照传入顺序执行的
+ */
+
 public abstract class FilterEventAdapter extends FilterAdapter {
 
     public FilterEventAdapter(){

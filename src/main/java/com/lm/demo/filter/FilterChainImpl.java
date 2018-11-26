@@ -64,7 +64,7 @@ public class FilterChainImpl implements FilterChain {
     public void cook(String dishName) {
         if (this.pos < filterSize) {
             nextFilter()
-                    .washVegetable(this, dishName);
+                    .cook(this, dishName);
             return;
         }
         System.out.println("已经到达{cook}动作过滤链顶端");
@@ -75,7 +75,7 @@ public class FilterChainImpl implements FilterChain {
     public void eat(String tableware) {
         if (this.pos < filterSize) {
             nextFilter()
-                    .washVegetable(this, tableware);
+                    .eat(this, tableware);
             return;
         }
         System.out.println("已经到达{eat}动作过滤链顶端");

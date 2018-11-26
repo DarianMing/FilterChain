@@ -60,6 +60,7 @@ public abstract class MineAbstract implements MineProxy {
         return clearFiltersEnable;
     }
 
+    //此处日后完善，先调用setProxyFilters将filter集合注入进来
     public void addFilters(String filters) throws SQLException {
         if (filters == null || filters.length() == 0) {
             return;

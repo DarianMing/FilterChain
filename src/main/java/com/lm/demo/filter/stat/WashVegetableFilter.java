@@ -26,25 +26,26 @@ public class WashVegetableFilter extends FilterEventAdapter {
         }
     }
 
-    @Override
-    public void washVegetable(FilterChain chain, String vegetableName) {
-        this.washVegetableBefore(chain,vegetableName);
-        vegetableName = vegetableName + "、(WashVegetableFilter)莴苣";
-        //super.washVegetable(chain, vegetableName);
-        chain.washVegetable(vegetableName);
-        this.washVegetableAfter(chain,vegetableName);
-    }
+      //如果直接覆盖动作，那么before和after方法就会失效，此时需要在本方法中重新调用before和after方法
+//    @Override
+//    public void washVegetable(FilterChain chain, String vegetableName) {
+////        this.washVegetableBefore(chain,vegetableName);
+//        vegetableName = vegetableName + "、(WashVegetableFilter)莴苣";
+//        //super.washVegetable(chain, vegetableName);
+//          chain.washVegetable(vegetableName);
+////        this.washVegetableAfter(chain,vegetableName);
+//    }
 
     @Override
     public void washVegetableBefore(FilterChain chain, String vegetableName) {
-        System.out.println("洗" + vegetableName + "之前");
+        System.out.println("我是WashVegetableFilter，我要告诉大家要开始洗菜啦！");
         //super.washVegetableBefore(chain, vegetableName);
     }
 
     @Override
     public void washVegetableAfter(FilterChain chain, String vegetableName) {
         //super.washVegetableAfter(chain, vegetableName);
-        System.out.println("洗" + vegetableName + "之后");
+        System.out.println("我是WashVegetableFilter，我要告诉大家已经洗完菜啦！");
     }
 
     @Override
